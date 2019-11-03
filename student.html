@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Crud Teacher</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/design.css">
+<script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-database.js"></script>
+
+<script src="js/teachers/models/connection.js"></script>
+<script src="js/teachers/models/db.js"></script>
+<script src="js/teachers/models/question.js"></script>
+<script src="js/teachers/models/question_operations.js"></script>
+<script src="js/students/ctrl.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 id="msg" class="alert-info text-center">Question Quiz</h1>
+            </div>
+        </div>
+        <hr/>
+        <div class="text-center">
+            <button class="btn btn-primary" id="startQuiz">Start Quiz</button> 
+        </div>
+        <hr/>
+        <div class="text-center">
+            <button class="btn btn-warning" id="question"></button>
+            <hr/>
+            <div id="choices"> 
+                <button class="btn btn-info" id="first"> </button>
+                <button class="btn btn-info" id="second"></button>
+                <button class="btn btn-info" id="third"> </button>
+                <button class="btn btn-info" id="fourth"></button>
+            </div>
+            <hr/>
+            <div id="timer"></div>
+            <hr/>
+            <div id="progressbar">
+                <div class="progress">
+                    <div id="dynamic" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                        <span id="current-progress"></span>
+                    </div>
+                </div>
+            </div>
+            <hr/>
+            <div id="score"></div>
+        </div>
+    </div>
+</body>
+</html>
+
+

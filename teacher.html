@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Crud Teacher</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/design.css">
+<script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-database.js"></script>
+
+<script src="js/teachers/models/connection.js"></script>
+<script src="js/teachers/models/db.js"></script>
+<script src="js/teachers/models/question.js"></script>
+<script src="js/teachers/models/question_operations.js"></script>
+<script src="js/teachers/controllers/ctrl.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 id="msg" class="alert-info text-center">Question CRUD</h1>
+            
+                <div class="card">
+                    <div class="card-header"> Class maker Curd Operations</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                
+                                    <div class="form-group">
+                                        <label for="">ID</label>
+                                        <input type="text" id="questionId" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="">Question</label>
+                                            <textarea id="question" class="form-control form-control-sm"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">OptionA</label>
+                                        <input type="text" id="optionA" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">OptionB</label>
+                                        <input type="text" id="optionB" class="form-control form-control-sm">
+                                    </div>
+                            </div>
+                            <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">OptionC</label>
+                                        <input type="text" id="optionC" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">OptionD</label>
+                                        <input type="text" id="optionD" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Right Answer</label>
+                                        <input type="text"  id="rans" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="formControlRange">Score</label>
+                                        <input class="form-control-range" id="score" class='form-control form-control-sm' type="range" min="1" max="10" value="1">
+
+                                    </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="text-center">Total Records <span id="total_records">0</span> TotalMarked <span id="total_marked">0</span> Unmarked <span id="total_unmarked">0</span></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 text-center">
+                                <div class="form-group text-center">
+                                    <button class="btn btn-success btn-sm" id="add">Add</button>
+                                    <button id="delete" class="btn btn-danger btn-sm">Delete</button>
+                                    <button  id="search" class="btn btn-warning btn-sm">Search</button>
+                                    <button id="update" class="btn btn-secondary btn-sm">Update</button>
+                    
+                                    <button  id="save" class="btn btn-info btn-sm">Save</button>
+                                    <button id="load" class="btn btn-warning btn-sm">Load</button>
+                                    <button id="clear_all" class="btn btn-success btn-sm">ClearAll</button>
+                                
+                                </div>
+                            </div>
+                        </div>
+                            <div class="row" id="search_box" style="display: none;">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="">Enter ID Of Question</label>
+                                        <input id="keyword" type="text"   class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+      
+            </div>
+        </div>
+        <hr/>
+        <div class="row">    
+            <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header"> List of Questions</div>
+                        <div class="card-body ">
+                                <div class="table-responsive">
+                                <table class="table table-stripped">
+                                <tr>
+                                    <th class="pointer" id="sort_by_id">#</th>
+                                    <th>Question</th>
+                                    <th>OptionA</th>
+                                    <th>OptionB</th>
+                                    <th>OptionC</th>
+                                    <th>OptionD</th>
+                                    <th>RightAns</th>
+                                    <th>Score</th>
+                                    <th colspan="2" scope="col">Operation</th>
+                                </tr>
+                                <tbody id="questions"></tbody>
+                            </table>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>  
+    </div>
+</body>
+</html>
+
+

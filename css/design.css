@@ -1,0 +1,22 @@
+.size{
+    width:20px;
+    height:20px;
+}
+.backgroundColor{
+    background-color: red;
+}
+.pointer {cursor: pointer;}
+.pointer:hover{
+    background-color: #ddd;
+}
+table{
+    font-size: 0.9em;
+}
+#timer{
+    font-size: 2em;
+    font-weight: bold;
+}
+#score{
+    font-size: 2em;
+    font-weight: bold;
+}
